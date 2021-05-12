@@ -10,6 +10,10 @@ public class Player {
     public String getPlayer() {
         return player;
     }
+
+    public void setPlayer(String player) {
+        this.player = player;
+    }
     
     public void changePlayer(){
         if(player.equals("X")) player = "O";

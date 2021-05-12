@@ -9,26 +9,29 @@ public class Game {
     public Logic logic;
 
     public Game(){
-        this.board = new Board();
         this.player = new Player();
+        this.board = new Board();
         this.logic = new Logic();
     }
     
     public void start(){
         
-        board.drawBoard();
+        System.out.println("Player " + player.getPlayer() + " starts the game");
         
-        System.out.println();
-        System.out.print("Choose position: ");
-        int position = scanner.nextInt();
-        
-        board.setBoard(logic.move(position));
-        
-        System.out.println();
-        board.drawBoard();
-        
-        while(!logic.isWin()){
-            //game
+        while((!logic.isWin()) || logic.isDraw()){
+            board.drawBoard();
+            System.out.println();
+            System.out.print("Choose position: ");
+            int position = scanner.nextInt();
+            board.setBoard(logic.move(position));
         }
+        
+        player.changePlayer();
+        
+        if(logic.isDraw()) System.out.println("Draw!");
+        else System.out.println("Player " + player.getPlayer() + " won the game!");
+        System.out.println("New game? (y/n)");
+        String choose = scanner.next();
+        if(choose.toLowerCase().equals("y")) start();
     }
 }
