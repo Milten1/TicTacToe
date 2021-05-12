@@ -2,36 +2,43 @@ package com.mycompany.tictactoe;
 
 
 public class Board {
+    private String board[];
     private int size;
-    private String[] board;
-    private Player player;
     
-    public Board(int size){
-        this.size = size;
+    public Board(){
+        this.size = 3;
         this.board = new String[size*size];
-        this.player = new Player("");
+        initializeBoard();
     }
 
-    public void setBoard(String[] board) {
-        this.board = board;
+    public String[] getBoard() {
+        return board;
     }
 
     public int getSize() {
         return size;
     }
 
-    public String[] getBoard() {
-        return board;
+    public void setBoard(String[] board) {
+        this.board = board;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+    
+    public void initializeBoard(){
+        int number = 1;
+        for(int i = 0; i < board.length; i++){
+            board[i] = String.valueOf(number);
+            number++;
+        }
     }
     
     public void drawBoard(){
-        int x = 1;
-        for(int i = 0; i < size; i++){
-            for(int j = 0; j < size; j++){
-            System.out.print("[" + x + "]");
-            x++;
-            }
-            System.out.println();
+        for(int i = 0; i < board.length; i++){
+            if(i % size == 0) System.out.println();
+            System.out.print("[" + board[i] + "]");
         }
     }
 }

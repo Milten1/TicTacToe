@@ -1,29 +1,34 @@
 package com.mycompany.tictactoe;
+
 import java.util.Scanner;
 
-
 public class Game {
-    Scanner scanner = new Scanner(System.in);
-    private Board board;
-    private Logic logic = new Logic();
+    public Scanner scanner = new Scanner(System.in);
+    public Board board;
+    public Player player;
+    public Logic logic;
+
+    public Game(){
+        this.board = new Board();
+        this.player = new Player();
+        this.logic = new Logic();
+    }
     
     public void start(){
-        System.out.print("Please enter board size: ");
-        int size = scanner.nextInt();
-        board = new Board(size);
-        
-        System.out.println("Choose first player (X or O): ");
-        String piece = scanner.next();
-        Player player = new Player(piece);
         
         board.drawBoard();
-
         
-        while(!(logic.isWin())){
-            logic.move();
-            player.changePlayer();
-            board.drawBoard();
-            
+        System.out.println();
+        System.out.print("Choose position: ");
+        int position = scanner.nextInt();
+        
+        board.setBoard(logic.move(position));
+        
+        System.out.println();
+        board.drawBoard();
+        
+        while(!logic.isWin()){
+            //game
         }
     }
 }

@@ -1,11 +1,10 @@
 package com.mycompany.tictactoe;
 
-
 public class Player {
     private String player;
-    
-    public Player(String player){
-        this.player = player;
+
+    public Player() {
+        this.player = "X";
     }
 
     public String getPlayer() {
@@ -16,10 +15,4 @@ public class Player {
         if(player.equals("X")) player = "O";
         else player = "X";
     }
-
-    @Override
-    public String toString() {
-        return player;
-    }
-    
 }
