@@ -15,18 +15,28 @@ public class Game {
     }
     
     public void start(){
+        board.initializeBoard();
         
         System.out.println("Player " + player.getPlayer() + " starts the game");
         
-        while((!logic.isWin()) || logic.isDraw()){
+        while(/*!(logic.isDraw()) || (logic.isWin()) */ true){
             board.drawBoard();
             System.out.println();
             System.out.print("Choose position: ");
             int position = scanner.nextInt();
             board.setBoard(logic.move(position));
+            
+            
+            //test
+//            logic.fillBoard();
+            
+            
+            if(logic.isWin()) break;
+            if(logic.isDraw()) break;
         }
         
-        player.changePlayer();
+        board.drawBoard();
+        System.out.println();
         
         if(logic.isDraw()) System.out.println("Draw!");
         else System.out.println("Player " + player.getPlayer() + " won the game!");
