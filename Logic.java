@@ -24,20 +24,58 @@ public class Logic {
     }
     
     public boolean isWin(){
+        logicBoard = board.getBoard();
+        
+        if((logicBoard[0].equals("X") && logicBoard[1].equals("X") && logicBoard[3].equals("X")) ||
+           (logicBoard[3].equals("X") && logicBoard[4].equals("X") && logicBoard[5].equals("X"))  ||
+           (logicBoard[6].equals("X") && logicBoard[7].equals("X") && logicBoard[8].equals("X")) ) return true;
+        
+        if((logicBoard[0].equals("X") && logicBoard[3].equals("X") && logicBoard[6].equals("X")) ||
+           (logicBoard[1].equals("X") && logicBoard[4].equals("X") && logicBoard[7].equals("X"))  ||
+           (logicBoard[2].equals("X") && logicBoard[5].equals("X") && logicBoard[8].equals("X")) ) return true;
+        
+        if((logicBoard[0].equals("X") && logicBoard[4].equals("X") && logicBoard[8].equals("X")) ||
+           (logicBoard[2].equals("X") && logicBoard[4].equals("X") && logicBoard[6].equals("X"))  ) return true;
+        
+        
+        
+        
+        if((logicBoard[0].equals("O") && logicBoard[1].equals("O") && logicBoard[2].equals("O")) ||
+           (logicBoard[3].equals("O") && logicBoard[4].equals("O") && logicBoard[5].equals("O"))  ||
+           (logicBoard[6].equals("O") && logicBoard[7].equals("O") && logicBoard[8].equals("O")) ) return true;
+        
+        if((logicBoard[0].equals("O") && logicBoard[3].equals("O") && logicBoard[6].equals("O")) ||
+           (logicBoard[1].equals("O") && logicBoard[4].equals("O") && logicBoard[7].equals("O"))  ||
+           (logicBoard[2].equals("O") && logicBoard[5].equals("O") && logicBoard[8].equals("O")) ) return true;
+        
+        if((logicBoard[0].equals("O") && logicBoard[4].equals("O") && logicBoard[8].equals("O")) ||
+           (logicBoard[2].equals("O") && logicBoard[4].equals("O") && logicBoard[6].equals("O"))  ) return true;
+        
+        
         return false;
     }
     
-    public boolean isDraw(){
-        boolean boardIsFilled = true;
+    public boolean isBoardFilled(){
+        boolean isFilled = true;
+        
+        logicBoard = board.getBoard();
         
         for(String position: logicBoard){
-            if(!(position.equals("X") || position.equals("O"))) boardIsFilled = false;
+            if(!(position.equals("X") || position.equals("O"))) isFilled = false;
         }
-        
-        
-        return boardIsFilled;
+        return isFilled;
     }
     
+    public boolean isDraw(){
+        return isBoardFilled() && !(isWin());
+    }
     
+    //test methods
+    public void fillBoard(){
+        for(int i = 0; i < logicBoard.length; i++){
+            logicBoard[i] = "X";
+        }
+        board.setBoard(logicBoard);
+    }
     
 }
