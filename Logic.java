@@ -14,8 +14,8 @@ public class Logic {
     public String[] move(int position){
         logicBoard = board.getBoard();
         
-        if(!(logicBoard[position-1].equals("X") || logicBoard[position-1].equals("O"))){
-            logicBoard[position-1] = player.getPlayer();
+        if(!(logicBoard[position].equals("X") || logicBoard[position].equals("O"))){
+            logicBoard[position] = player.getPlayer();
             board.setBoard(logicBoard);
             player.changePlayer();
         } else System.out.println("Invalid position");
@@ -36,7 +36,6 @@ public class Logic {
         
         if((logicBoard[0].equals("X") && logicBoard[4].equals("X") && logicBoard[8].equals("X")) ||
            (logicBoard[2].equals("X") && logicBoard[4].equals("X") && logicBoard[6].equals("X"))  ) return true;
-        
         
         
         

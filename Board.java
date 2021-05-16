@@ -29,8 +29,11 @@ public class Board {
     
     public void initializeBoard(){
         int number = 1;
+        String zero = "";
         for(int i = 0; i < board.length; i++){
-            board[i] = String.valueOf(number);
+            if(i < 9 && size > 3) zero = "0";
+            board[i] = zero + String.valueOf(number);
+            zero = "";
             number++;
         }
     }
