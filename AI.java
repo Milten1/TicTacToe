@@ -56,19 +56,31 @@ public class AI {
         
     }
     
-    //inner version of easy difficulty
+    //another version of easy difficulty
     public int moveRandom(){
         while(true){
             int position = (int) ((Math.random() * (9)));
             AIBoard = board.getBoard();
-            if(!(AIBoard[position].equals("X") || AIBoard[position].equals("O"))) return position;
+            if(!(AIBoard[position].equals("X") || AIBoard[position].equals("O"))) {
+                System.out.println("AI choose: " + (position+1));
+                return position;
+            }
         }
     }
     
     
     //method for medium difficulty
-    public int moves(){
-        return 0;
+    public int mediumMoves(){
+        while(true){
+            int[] positions = {0, 2, 4, 6, 7};
+            int pos = (int) ((Math.random() * (5)));
+            int position = positions[pos];
+            AIBoard = board.getBoard();
+            if(!(AIBoard[position].equals("X") || AIBoard[position].equals("O"))) {
+                System.out.println("AI choose: " + (position+1));
+                return position;
+            }
+        }
     }
     
     
