@@ -26,7 +26,7 @@ public class Logic {
     public boolean isWin(){
         logicBoard = board.getBoard();
         
-        if((logicBoard[0].equals("X") && logicBoard[1].equals("X") && logicBoard[3].equals("X")) ||
+        if((logicBoard[0].equals("X") && logicBoard[1].equals("X") && logicBoard[2].equals("X")) ||
            (logicBoard[3].equals("X") && logicBoard[4].equals("X") && logicBoard[5].equals("X"))  ||
            (logicBoard[6].equals("X") && logicBoard[7].equals("X") && logicBoard[8].equals("X")) ) return true;
         

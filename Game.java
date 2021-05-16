@@ -41,8 +41,16 @@ public class Game {
                 if(ai.getDifficulty() == 0){
 //                    board.setBoard(ai.randomMoves());
                       board.setBoard(logic.move(ai.moveRandom()));
+                      
                       counter++;
+                      
                       continue;
+                } else if(ai.getDifficulty() == 1){
+                    board.setBoard(logic.move(ai.mediumMoves()));
+                    
+                    counter++;
+                    
+                    continue;
                 }
                 
                 
