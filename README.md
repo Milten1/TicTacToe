@@ -4,3 +4,5 @@
 
 
 Simple tic-tac-toe game with even simpler AI and some bugs
+
+#### Project abandoned
